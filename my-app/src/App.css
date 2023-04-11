@@ -1,0 +1,57 @@
+.App {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.App button {
+  all: unset;
+  padding: 8px;
+  background-color: indianred;
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.App button:hover {
+  background-color: rgb(222, 147, 147);
+}
+
+.parent-wrapper {
+  width: 50%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.parent-wrapper i {
+  margin-bottom: 8px;
+}
+
+.parent {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px green solid;
+}
+
+.child {
+  width: 170px;
+  padding: 16px;
+  display: block;
+  border: 1px grey solid;
+  cursor: pointer;
+}
+
+.child span:last-child {
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+}
