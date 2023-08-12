@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "run": "ts-node 01_extended_error_object_example.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.9",
+    "typescript": "^5.1.6"
+  }
+}
