@@ -1,0 +1,8 @@
+POST http://localhost:3000/pessimistic/withdraw HTTP/1.1
+content-type: application/json
+
+{
+    "amount": 100
+}
+
+###

@@ -1,0 +1,13 @@
+{
+  "name": "concurrency-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sequelize": "^6.37.1",
+    "pg": "^8.11.5"
+  }
+}

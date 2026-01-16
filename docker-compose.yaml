@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16
+    container_name: concurrency_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: concurrency_demo
+    ports:
+      - "5432:5432"
+
+  api:
+    image: node:20
+    container_name: concurrency_api
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && node index.js"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
