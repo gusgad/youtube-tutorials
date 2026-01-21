@@ -1,0 +1,15 @@
+{
+  "name": "my-ecommerce",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm:dev-frontend\" \"npm:dev-backend\"",
+    "dev-frontend": "cd frontend && npm run dev",
+    "dev-backend": "cd backend && npm start",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "@playwright/test": "^1.36.0"
+  }
+}
