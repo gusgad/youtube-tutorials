@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@aws-crypto/sha256-js": "^5.2.0",
+    "@aws-sdk/credential-providers": "^3.972.0",
+    "@aws-sdk/signature-v4": "^3.370.0",
+    "express": "^5.2.1",
+    "kafkajs": "^2.2.4"
+  }
+}
