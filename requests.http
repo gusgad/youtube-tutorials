@@ -1,0 +1,171 @@
+### AI-Era Backend API Tests
+### Use with REST Client extension (REST Client by Huachao Mao)
+
+### Variables
+@baseUrl = http://localhost:3000
+@token = Bearer demo
+
+---
+
+### ============================================
+### DIRECT PATH TESTS (No AI involved)
+### ============================================
+
+### GET all orders (direct microservice call)
+GET {{baseUrl}}/orders
+Authorization: {{token}}
+
+---
+
+### GET all users (direct microservice call)
+GET {{baseUrl}}/users
+Authorization: {{token}}
+
+---
+
+### POST create payment (direct microservice call)
+POST {{baseUrl}}/payments
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "amount": 50.00,
+  "currency": "USD",
+  "from": "alice",
+  "to": "bob"
+}
+
+---
+
+### ============================================
+### AI PATH TESTS (Through Python agent)
+### ============================================
+
+### Query: Get all orders (AI path - simple)
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Get me all orders"
+}
+
+---
+
+### Query: Get all users (AI path)
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Show me all users"
+}
+
+---
+
+### Query: Get orders and users (AI path - multiple tools)
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Show me all orders and users, how many of each are there?"
+}
+
+---
+
+### Query: Complex request with context
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "List all payment information and orders",
+  "context": "We need to reconcile transactions"
+}
+
+---
+
+### Query: With custom session ID
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Get all orders",
+  "session_id": "session-123-abc"
+}
+
+---
+
+### ============================================
+### POLLING FOR TASK RESULTS
+### ============================================
+
+### Poll task result (replace TASK_ID with actual task_id from response)
+GET {{baseUrl}}/tasks/50bd8a7e-add0-4999-9b35-6e7f56ac2334
+Authorization: {{token}}
+
+---
+
+### ============================================
+### ERROR CASES
+### ============================================
+
+### Missing authorization header (should fail)
+GET {{baseUrl}}/orders
+
+---
+
+### Missing required prompt field (should fail)
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "session_id": "test-123"
+}
+
+---
+
+### Token limit exceeded (very long prompt, should fail with 413)
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+}
+
+---
+
+### Nonexistent task ID (should return 404)
+GET {{baseUrl}}/tasks/nonexistent-task-id
+Authorization: {{token}}
+
+---
+
+### ============================================
+### WORKFLOW EXAMPLES
+### ============================================
+
+### Step 1: Submit AI query and capture task_id
+POST {{baseUrl}}/agent/query
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "prompt": "Get me all orders and users"
+}
+
+### Step 2: Poll result (use task_id from Step 1 response)
+GET {{baseUrl}}/tasks/{task_id_from_step_1}
+Authorization: {{token}}
+
+---
+
+### Health check (if implemented)
+GET {{baseUrl}}/health
+Authorization: {{token}}
+
+---

@@ -1,0 +1,15 @@
+{
+  "name": "ai-era-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI-era backend architecture demonstrating how AI layers sit alongside traditional microservices",
+  "scripts": {
+    "start": "node gateway/index.js",
+    "start:orders": "node services/orders.js",
+    "start:users": "node services/users.js",
+    "start:payments": "node services/payments.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
