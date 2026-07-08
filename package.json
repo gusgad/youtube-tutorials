@@ -1,0 +1,8 @@
+{
+  "name": "pagination-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

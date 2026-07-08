@@ -1,2 +1,7 @@
-# youtube-tutorials
-Code from the Software Developer Diaries channel. Each branch of the repo is dedicated to a specific video.
+For the benchmark, run: sqlite3 posts.db < benchmark.sql
+
+To start:
+npm install
+node seed.js
+node benchmark.js
+node server.js
