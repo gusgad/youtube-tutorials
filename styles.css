@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  line-height: 1.5;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+progress {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#status {
+  font-weight: bold;
+}

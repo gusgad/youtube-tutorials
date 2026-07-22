@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Web Locks API Demo</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Web Locks API Demo</h1>
+  <p>
+    Open this page in two browser tabs, then click "Start Upload" in both.
+    Only one tab will actually upload — the other will see that an upload
+    is already in progress.
+  </p>
+
+  <button id="btn">Start Upload</button>
+  <progress id="progress" value="0" max="100"></progress>
+  <p id="status">Idle.</p>
+
+  <script src="app.js"></script>
+</body>
+</html>
