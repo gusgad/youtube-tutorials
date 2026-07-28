@@ -1,0 +1,30 @@
+2026-07-19T06:58:01Z INFO [api-gateway] GET /v1/orders 200 41ms
+2026-07-19T06:58:03Z INFO [auth-service] token issued for client web-frontend
+2026-07-19T06:58:11Z WARN [db-primary] connection pool usage at 81% (162/200)
+2026-07-19T06:58:14Z INFO [payments] charge succeeded order=ord-8123 amount=59.90
+2026-07-19T06:58:22Z ERROR [payments] charge failed order=ord-8127 provider=stripe err=timeout after 30000ms
+2026-07-19T06:58:25Z INFO [api-gateway] POST /v1/checkout 502 30012ms
+2026-07-19T06:58:31Z WARN [db-primary] connection pool usage at 88% (176/200)
+2026-07-19T06:58:34Z ERROR [orders] failed to persist order ord-8127: connection pool exhausted (waited 5000ms)
+2026-07-19T06:58:35Z ERROR [api-gateway] POST /v1/orders 503 5104ms upstream=orders
+2026-07-19T06:58:41Z WARN [auth-service] TLS certificate for internal.auth.svc expires in 6 days
+2026-07-19T06:58:44Z INFO [api-gateway] GET /v1/catalog 200 18ms
+2026-07-19T06:58:52Z ERROR [orders] failed to persist order ord-8131: connection pool exhausted (waited 5000ms)
+2026-07-19T06:58:53Z ERROR [api-gateway] POST /v1/orders 503 5087ms upstream=orders
+2026-07-19T06:59:01Z CRITICAL [db-primary] connection pool exhausted (200/200); rejecting new connections
+2026-07-19T06:59:02Z ERROR [orders] failed to persist order ord-8133: connection pool exhausted (waited 5000ms)
+2026-07-19T06:59:03Z ERROR [payments] charge reconciliation skipped: orders service unavailable
+2026-07-19T06:59:05Z WARN [cache] redis latency p99 214ms (threshold 100ms)
+2026-07-19T06:59:11Z ERROR [api-gateway] POST /v1/orders 503 5121ms upstream=orders
+2026-07-19T06:59:14Z INFO [auth-service] token issued for client mobile-app
+2026-07-19T06:59:21Z WARN [orders] retry queue depth 340 (threshold 100)
+2026-07-19T06:59:26Z ERROR [payments] charge failed order=ord-8140 provider=stripe err=timeout after 30000ms
+2026-07-19T06:59:30Z INFO [api-gateway] GET /v1/orders 200 44ms
+2026-07-19T06:59:33Z CRITICAL [db-primary] replication lag 45s on replica db-replica-2
+2026-07-19T06:59:41Z WARN [cache] redis latency p99 198ms (threshold 100ms)
+2026-07-19T06:59:47Z INFO [deploy] rollout orders:v2.14.0 progressing 3/6 pods
+2026-07-19T06:59:52Z ERROR [orders] failed to persist order ord-8144: connection pool exhausted (waited 5000ms)
+2026-07-19T07:00:02Z INFO [api-gateway] GET /healthz 200 2ms
+2026-07-19T07:00:04Z WARN [orders] pod orders-7d9f-x2v1 OOMKilled, restarting (3rd restart in 10m)
+2026-07-19T07:00:11Z ERROR [api-gateway] POST /v1/checkout 502 30009ms
+2026-07-19T07:00:19Z INFO [auth-service] token issued for client web-frontend

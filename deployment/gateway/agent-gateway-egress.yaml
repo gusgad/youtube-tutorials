@@ -1,0 +1,9 @@
+# Agent Gateway in Agent-to-Anywhere (egress) mode.
+# All outbound tool/API traffic from the agent is routed and governed here.
+name: log-triage-gateway
+protocols:
+  - MCP
+googleManaged:
+  governedAccessPath: AGENT_TO_ANYWHERE
+registries:
+  - projects/PROJECT_ID/locations/LOCATION/agentRegistries/log-triage-registry
