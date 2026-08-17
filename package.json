@@ -1,0 +1,25 @@
+{
+  "name": "payment-durability-demo",
+  "version": "1.0.0",
+  "description": "Multi-agent retry-storm / durable-agent demo for a Honeycomb Agent Timeline sponsorship video.",
+  "scripts": {
+    "naive": "node --env-file=.env agent_fleet_naive.js",
+    "backoff": "node --env-file=.env agent_fleet_backoff.js",
+    "reset": "rm -f appdb.sqlite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "dependencies": {
+    "@langchain/anthropic": "^1.5.4",
+    "@langchain/core": "^1.2.5",
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.221.0",
+    "@opentelemetry/resources": "^2.10.0",
+    "@opentelemetry/sdk-trace-node": "^2.10.0",
+    "zod": "^4.4.3"
+  }
+}
