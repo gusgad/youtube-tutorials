@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chatterbox-config
+  namespace: chatterbox
+data:
+  NODE_ENV: "production"
+  PORT: "4000"
+  PGHOST: "postgres"
+  PGPORT: "5432"
+  PGUSER: "chatterbox"
+  PGPASSWORD: "chatterbox_dev_pw"
+  PGDATABASE: "chatterbox"
+  REDIS_URL: "redis://redis:6379"
+  RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+  JWT_SECRET: "supersecretkey123"
+  CORS_ORIGIN: "*"

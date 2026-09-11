@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-worker
+  namespace: chatterbox
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification-worker
+  template:
+    metadata:
+      labels:
+        app: notification-worker
+    spec:
+      containers:
+        - name: notification-worker
+          image: chatterbox/backend:latest
+          command: ['node', 'worker/notificationWorker.js']
+          envFrom:
+            - configMapRef:
+                name: chatterbox-config
